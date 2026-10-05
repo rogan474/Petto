@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация — Petto</title>
+  <link rel="stylesheet" href="auth.css">
+  <link rel="icon" href="icon.png" type="image/png">
+</head>
+<body class="auth-page">
+    <main class="auth-box">
+        <a href="index.html" class="logo grad auth-logo">Petto</a>
+        <p class="auth-subtitle">
+            Зарегистрируйся, чтобы найти друзей для своего питомца
+        </p>
+        <form class="auth-form" action="#" method="post">
+            <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+            autocomplete="email"
+            >
+            <input
+            type="text"
+            name="name"
+            placeholder="Имя и фамилия"
+            required
+            autocomplete="name"
+            >
+            <input
+            type="text"
+            name="username"
+            placeholder="Имя пользователя"
+            required
+            autocomplete="username"
+            >
+            <input
+            type="password"
+            name="password"
+            placeholder="Пароль"
+            required
+            minlength="6"
+            autocomplete="new-password"
+            >
+            <button type="submit" class="btn">Зарегистрироваться</button>
+        </form>
+        <p class="auth-divider">или</p>
+        <button class="btn-ghost auth-social" type="button">
+            Войти через Google
+        </button>
+        <p class="auth-botton">
+            Уже есть аккаунт?
+        <a href="#">Войти</a>
+        </p>
+    </main>
+<script src="script.js"></script>   
+</body>
+</html>

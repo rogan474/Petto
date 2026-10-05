@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petto - знакомства для питомцев</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.png" type="image/png">
+  </head>
+  <body>
+
+<button class="theme-toggle" id="themeBtn" aria-label="Переключить тему"> 🌙 Тема</button>
+
+  <header class="nav">
+    <a href="#hero" class="logo grad">Petto</a>
+    
+    <nav class="menu">
+      <ul>
+        <li><a href="#feed">Лента</a></li>
+        <li><a href="#swipe">Знакомства</a></li>
+        <li><a href="#messages">Сообщения</a></li>
+        <li><a href="#profile">Профиль</a></li>
+      </ul>
+    </nav>
+
+    <menu class="header-actions">
+      <a href="login.html" class="btn btn-ghost">Войти</a>
+      <a href="auth.html" class="btn">Регистрация</a>
+    </menu>
+  </header>
+
+  <main>
+
+    <section id="hero" class="hero">
+      <h1>Найди друзей для своего питомца</h1>
+      <p>Знакомься, гуляй вместе, делись моментами и оценивай других питомцев.</p>
+      <menu class="hero-actions">
+        <a href="auth.html" class="btn">Начать</a>
+        <a href="#projects" class="btn btn-ghost">Узнать больше</a>
+      </menu>
+    </section>
+
+    <section class="layout">
+      <aside class="sidebar">
+        <h3>Меню</h3>
+        <p>Быстрые ссылки, фильтры, подсказки.</p>
+      </aside>
+      <section class="content">
+        <h2>Лента</h2>
+        <p>Свежие посты питомцев.</p>
+      </section>
+    </section>
+<menu class="filters">
+    <button class="filter-btn active" data-filter="all">Все</button>
+    <button class="filter-btn" data-filter="cats">Котята</button>
+    <button class="filter-btn" data-filter="dogs">Щенки</button>
+    <button class="filter-btn" data-filter="outhers">Другие</button>
+       </menu>
+       <p class="filter-count">Показано: <span id="filterCount">6</span></p>
+    <section id="feed" class="cards-section">
+      <article class="card post" data-category="cats">
+        <header class="post-header">
+          <img src="img/amyr2.png" alt="аватар" class="avatar">
+          <p>
+            <strong>Амур</strong>
+            <time class="muted">2 часа назад</time>
+          </p>
+          <span class="badge">NEW</span>
+        </header>
+        
+        <figure class="post-image">
+          <img src="img/amyr1.png" alt="Амур греется на солнышке">
+        </figure>
+
+        <menu class="post-actions">
+          <button class="like-btn" type="button" aria-label="Лайк">
+            <span class="like-icon">🤍</span>
+            <span class="like-count">12</span>
+          </button>
+          <button class="comment-toggle" type="button">
+            💬 <span>3</span>
+          </button>
+          <button class="share-btn" type="button" aria-label="Поделиться">🔗</button>
+        </menu>
+
+        <section class="post-caption">
+          <p><strong>Амур:</strong>Греется на солнышке</p>
+        </section>
+      </article>
+
+      <article class="card post" data-category="cats">
+        <header class="post-header">
+          <img src="img/cat1.png" alt="аватар" class="avatar">
+          <p>
+            <strong>Кот</strong>
+            <time class="muted">2 часа назад</time>
+          </p>
+          <span class="badge">NEW</span>
+        </header>
+        
+        <figure class="post-image">
+          <img src="img/cat1.png" alt="Кот без негатива">
+        </figure>
+
+        <menu class="post-actions">
+          <button class="like-btn" type="button" aria-label="Лайк">
+            <span class="like-icon">🤍</span>
+            <span class="like-count">12</span>
+          </button>
+          <button class="comment-toggle" type="button">
+            💬 <span>3</span>
+          </button>
+          <button class="share-btn" type="button" aria-label="Поделиться">🔗</button>
+        </menu>
+
+        <section class="post-caption">
+          <p><strong>Кот:</strong>Без негатива</p>
+        </section>
+      </article>
+
+      <article class="card post" data-category="dogs">
+        <header class="post-header">
+          <img src="img/shesh.png" alt="аватар" class="avatar">
+          <p>
+            <strong>Скейч</strong>
+            <time class="muted">2 часа назад</time>
+          </p>
+        </header>
+        
+        <figure class="post-image">
+          <img src="img/shesh.png" alt="Скейч просыпается">
+        </figure>
+
+        <menu class="post-actions">
+          <button class="like-btn" type="button" aria-label="Лайк">
+            <span class="like-icon">🤍</span>
+            <span class="like-count">12</span>
+          </button>
+          <button class="comment-toggle" type="button">
+            💬 <span>3</span>
+          </button>
+          <button class="share-btn" type="button" aria-label="Поделиться">🔗</button>
+        </menu>
+
+        <section class="post-caption">
+          <p><strong>Скейч:</strong>Проснулись</p>
+        </section>
+      </article>
+    </section>
+
+    <section id="projects" class="projects">
+      <h2>Фотки питомцев</h2>
+       <section class="projects-grid">
+
+        <article class="project">
+          <img src="img/cat1.png" alt="Кот">
+        </article>
+
+        <article class="project">
+          <img src="img/skesh2.png" alt="Собака">
+        </article>
+
+        <article class="project">
+          <img src="img/amyr2.png" alt="Котёнок">
+        </article>
+
+        <article class="project">
+          <img src="img/parrot.png" alt="Попугай">
+        </article>
+
+        <article class="project">
+          <img src="img/hamster.png" alt="Хомяк">
+        </article>
+
+        <article class="project">
+          <img src="img/puppy.png" alt="Щенок">
+        </article>
+      </section>
+    </section>
+
+
+  </main>
+
+  <footer class="footer">
+    <small>© 2026 Petto. Все права защищены.</small>
+  </footer>
+
+ 
+
+<button class="scroll-top" id="scrollTopBtn" aria-label="Наверх">
+  ↑
+</button>
+<script src="script.js"></script>
+  </body>
+</html>
