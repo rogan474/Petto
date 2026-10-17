@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация — Petto</title>
+  <link rel="icon" href="icon.png" type="image/png">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+  <div class="auth-page">
+    <main class="auth-box">
+      <a href="index.html" class="logo grad auth-logo">Petto</a>
+      <p class="auth-subtitle">Зарегистрируйся, чтобы найти друзей для своего питомца</p>
+
+      <form class="auth-form" action="#" method="post" id="registerForm" novalidate>
+        <input id="email" type="email" name="email" placeholder="Email" autocomplete="email">
+        <small class="error" id="emailError"></small>
+
+        <input id="name" type="text" name="name" placeholder="Имя и фамилия" autocomplete="name">
+        <small class="error" id="nameError"></small>
+
+        <input id="username" type="text" name="username" placeholder="Имя пользователя" autocomplete="username">
+        <small class="error" id="usernameError"></small>
+
+        <div class="password-wrap">
+          <input id="password" type="password" name="password" placeholder="Пароль" autocomplete="new-password">
+          <button type="button" class="toggle-password" id="togglePassword" aria-label="Показать пароль">👁️</button>
+        </div>
+        <small class="error" id="passwordError"></small>
+
+        <div class="strength-bar">
+          <div class="strength-fill" id="strengthFill"></div>
+        </div>
+        <p class="strength-text" id="strengthText">Введите пароль</p>
+
+  <div class="form-group checkbox-group">
+    <label class="checkbox-label">
+      <input type="checkbox" id="terms">
+      <span>Я согласен с <a href="#">условиями обработки</a></span>
+    </label>
+     <small class="error" id="termsError"></small>
+  </div>
+
+        <button type="submit" class="btn" id="submitBtn" disabled>
+          <span class="btn-text">Зарегистрироваться</span>
+          <span class="btn-spinner"></span>
+        </button>
+      </form>
+
+      <p class="auth-bottom">
+        Уже есть аккаунт? <a href="login.html">Войти</a>
+      </p>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="successModal">
+    <div class="modal">
+        <div class="modal-icon">✅</div>
+        <h2>Регистрация успешна!</h2>
+        <p>Добро пожаловать на наш сайт.</p>
+        <button class="modal-btn" id="modalClose">Продолжить</button>
+    </div>
+</div>
+
+  <script src="register.js" defer></script>
+</body>
+</html>

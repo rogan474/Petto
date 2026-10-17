@@ -1,0 +1,386 @@
+/* ==========================================
+   1. ПЕРЕМЕННЫЕ И БАЗОВЫЕ НАСТРОЙКИ
+   ========================================== */
+:root {
+  --bg: #f4f8f2;
+  --card-bg: #ffffff;
+  --neon: #7bc86c;
+  --accent: #4a9e5c;
+  --text: #1e2b20;
+  --text-muted: #6b7f6d;
+  --radius: 15px;
+  --shadow: 0 5px 20px rgba(74, 158, 92, 0.12);
+  --transition: 0.3s ease;
+}
+
+body.dark {
+  --bg: #0f1a12;
+  --card-bg: #1a2a1e;
+  --neon: #a3e08d;
+  --accent: #6bc47a;
+  --text: #eaf5e5;
+  --text-muted: #8fa891;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, Arial, sans-serif;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text);
+  transition: background var(--transition), color var(--transition);
+}
+
+/* ==========================================
+   2. ОСНОВНОЙ БЛОК (КАРТОЧКА)
+   ========================================== */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.auth-box {
+  width: 100%;
+  max-width: 380px;
+  background: var(--card-bg);
+  padding: 40px 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.auth-logo {
+  font-size: 32px;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.auth-logo.grad {
+  background: linear-gradient(90deg, var(--neon), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.auth-subtitle {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+/* ==========================================
+   3. ФОРМА И ПОЛЯ ВВОДА
+   ========================================== */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-form input {
+  padding: 12px 14px;
+  border: 2px solid rgba(74, 158, 92, 0.2);
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  background: var(--bg);
+  color: var(--text);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.auth-form input::placeholder {
+  color: var(--text-muted);
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--neon);
+  box-shadow: 0 0 0 3px rgba(123, 200, 108, 0.2);
+}
+
+/* Состояния полей */
+.auth-form input.error { border-color: #e74c3c; }
+.auth-form input.success { border-color: #27ae60; }
+
+.error {
+  display: block;
+  color: #e74c3c;
+  font-size: 13px;
+  text-align: left;
+  min-height: 18px;
+  margin-top: -6px;
+}
+
+/* ==========================================
+   4. КНОПКА И СПИННЕР ЗАГРУЗКИ
+   ========================================== */
+.auth-form .btn {
+  margin-top: 8px;
+  width: 100%;
+  padding: 12px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background var(--transition), transform 0.2s;
+}
+
+.auth-form .btn:hover:not(:disabled) {
+  background: var(--neon);
+  color: #0f1a12;
+  transform: translateY(-1.5px);
+}
+
+.auth-form .btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.auth-form .btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Спиннер (крутилка) */
+.btn-spinner {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Состояние загрузки кнопки */
+.auth-form .btn.loading {
+  position: relative;
+  color: transparent !important;
+}
+
+.auth-form .btn.loading .btn-text {
+  display: none !important;
+}
+
+.auth-form .btn.loading .btn-spinner {
+  display: block !important;
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  margin-top: -10px;
+  margin-left: -10px;
+}
+
+/* ==========================================
+   5. ПАРОЛЬ (ГЛАЗ) И ШКАЛА НАДЕЖНОСТИ
+   ========================================== */
+.password-wrap {
+  position: relative;
+  display: flex;
+}
+
+.password-wrap input {
+  width: 100%;
+  padding-right: 44px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0.6;
+  padding: 4px;
+}
+
+.toggle-password:hover { opacity: 1; }
+
+.strength-bar {
+  height: 6px;
+  background: #eee;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.strength-fill {
+  height: 100%;
+  width: 0;
+  transition: width 0.3s, background 0.3s;
+}
+
+.strength-text {
+  font-size: 13px;
+  margin-top: 5px;
+  color: #999;
+  text-align: left;
+}
+
+/* ==========================================
+   6. ЧЕКБОКС (СОГЛАСИЕ)
+   ========================================== */
+.checkbox-group {
+  margin-bottom: 15px;
+  margin-top: 5px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.checkbox-label input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--accent);
+}
+
+.checkbox-label a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.checkbox-label a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================
+   7. ССЫЛКИ ВНИЗУ (ВОЙТИ/ЗАРЕГИСТРИРОВАТЬСЯ)
+   ========================================== */
+.auth-bottom {
+  margin-top: 25px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.auth-bottom a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition);
+}
+
+.auth-bottom a:hover {
+  color: var(--neon);
+}
+
+/* ==========================================
+   8. МОДАЛЬНОЕ ОКНО (УСПЕХ)
+   ========================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  pointer-events: none;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal {
+  background: var(--card-bg);
+  color: var(--text);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  transform: scale(0.8);
+  transition: transform 0.3s;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-overlay.active .modal {
+  transform: scale(1);
+}
+
+.modal-icon {
+  font-size: 60px;
+  margin-bottom: 15px;
+}
+
+.modal h2 {
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.modal p {
+  color: var(--text-muted);
+  margin-bottom: 25px;
+}
+
+.modal-btn {
+  padding: 12px 30px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.modal-btn:hover {
+  background: var(--neon);
+  color: #0f1a12;
+}
+
+/* ==========================================
+   9. АДАПТИВ (ДЛЯ ТЕЛЕФОНОВ)
+   ========================================== */
+@media (max-width: 480px) {
+  .auth-box {
+    padding: 30px 20px;
+  }
+
+  .auth-logo {
+    font-size: 26px;
+  }
+}
