@@ -194,7 +194,45 @@
       </section>
     </section>
 
+    <section class="slider-section">
+      <h2>Наши счастливые хвостики 🐾</h2>
+      <div class="slider" id="sliderContainer">
+        <div class="slider_track" id="sliderTrack"></div>
+        <button class="slider-btn slider_prev" id="btnPrev">❮</button>
+        <button class="slider-btn slider_next" id="btnNext">❯</button>
+        <div class="slider_dots" id="sliderDots"></div>
+      </div>
+    </section>
 
+    <section class="friends-section">
+      <h2>Найди друзей для питомца 🤝</h2>
+      <div class="friends-layout">
+        <div class="friends-catalog" id="friendsCatalog">
+        </div>
+        <div class="friends-cart">
+          <h3>Мои друзья</h3>
+          <div id="friendsCartList">
+            <p class="friends-cart-empty">Пока никого нет :(</p>
+          </div>
+          <div class="friends-cart-total">
+            <span>Всего заявок:</span>
+            <span id="friendsCartTotal">0</span>
+          </div>
+          <button class="friends-btn-clear" id="btnClearCart">Очистить</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-section">
+      <h2>Блог о питомцах 📖</h2>
+      <input type="text" id="blogSearchInput" class="blog-search" placeholder="Поиск по статьям...">
+      <div class="blog-list" id="blogList"></div>
+      <div class="pagination">
+        <button id="btnPrevPage" class="pagination-btn">◀ Пред.</button>
+        <div class="pagination-numbers" id="paginationNumbers"></div>
+        <button id="btnNextPage" class="pagination-btn">След. ▶</button>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
