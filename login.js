@@ -36,10 +36,10 @@ function validateEmail(value) {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmer)) return { valid: false, message: "Неверный email"};
   return { valid: true, message: ""};
 }
-email.addEventListener("input", ( => {
+email.addEventListener("input", () => {
   if (touched.email) validateSingleField(email, emailError, validateEmail);
   updateSubmitState ();
-}));
+});
 email.addEventListener("blur", () => {
   touched.email = true;
   validateSingleField(email, emailError, validateEmail);
@@ -118,7 +118,7 @@ form.addEventListener("submit", async (event) => {
   await new Promise((resolve) => setTimeout(resolve, 1500));
   setLoading(false);
   showModal();
-  form.requestFullscreen();
+  form.reset();
   submitBtn.disabled = true;
   [email, password].forEach((input) => input.classList.remove("success"));
 });

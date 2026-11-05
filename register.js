@@ -10,6 +10,11 @@ let touched = {
   password: false
 };
 //ОБЩИЕ ФУНКЦИИ
+function showError(input, errorElement, message) {
+  input.classList.add("error");
+  input.classList.remove("success");
+  errorElement.textContent = message;
+}
 function showSuccess(input, errorElement) {
   input.classList.remove("error");
   input.classList.add("success");
@@ -31,6 +36,7 @@ function validateUsername(value) {
   if (trimmed === "") return { valid: false, message: "Введите имя пользователя"};
   if (trimmed.length > 20) return { valid: false, message: "Максимум 20 символов"};
   if (!/^[а-яА-Яa-zA-Z0-9_]+$/.test(trimmed)) return { valid: false, message: "Только буквы, цифры и _"};
+  return { valid: true, message: ""};
 }
 username.addEventListener("input", () => {
   if (touched.username) validateSingleField(username, usernameError, validateUsername);
@@ -58,7 +64,7 @@ const nameError = document.querySelector("#nameError");
  });
  fullName.addEventListener("blur", () => {
   touched.fullName = true;
-  validateSingleField(fullName> nameError, validateName);
+  validateSingleField(fullName, nameError, validateName);
   updateSubmitState();
  });
  //ВАЛИДАЦИЯ EMAIL
@@ -87,7 +93,7 @@ const nameError = document.querySelector("#nameError");
   if (value === "") return { valid: false, message: "Введите пароль"};
   if (value.length < 8) return { valid: false, message: "Минимум 8 символов"};
   if (!/[a-zA-Z]/.test(value)) return { valid: false, message: "Добавте букву"};
-  if (!/\d/.test(value)) return { velid: false, message: "Добавте цифру"};
+  if (!/\d/.test(value)) return { valid: false, message: "Добавте цифру"};
   return { valid: true, message: ""};
  }
  password.addEventListener("input", (event) => {
@@ -142,7 +148,7 @@ const nameError = document.querySelector("#nameError");
  //ОБЩАЯ ПРОВЕРКА ФОРМЫ
  function validateForm() {
   const r1 = validateUsername(username.value);
-  const r2 = validatename(fullName.value);
+  const r2 = validateName(fullName.value);
   const r3 = validateEmail(email.value);
   const r4 = validatePassword(password.value);
   const r5 = validateTerms();
@@ -230,7 +236,7 @@ form.addEventListener("submit", async (event) => {
   form.reset();
   submitBtn.disabled = true;
   [username, fullName, email, password].forEach((input) => {
-    input.classList.remove("seccess");
+    input.classList.remove("success");
   });
   termsError.textContent = "";
   updateStrength("");
