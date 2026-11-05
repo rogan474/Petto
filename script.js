@@ -74,14 +74,14 @@ filterButtons.forEach((button) => {
 const burgerBtn = document.querySelector("#burgerBtn");
 const mobileNav = document.querySelector("#mobileNav");
 
-// 2. Открываем/закрываем меню по клику на бургер
+
 burgerBtn.addEventListener("click", () => {
     mobileNav.classList.toggle("open");
     burgerBtn.classList.toggle("active");
     document.body.classList.toggle("menu-open");
 });
 
-// 3. Закрываем меню при клике на ссылку
+
 const mobileLinks = mobileNav.querySelectorAll("a");
 mobileLinks.forEach((link) => {
     link.addEventListener("click", () => {
@@ -91,6 +91,7 @@ mobileLinks.forEach((link) => {
     });
 });
 
+//СЛАЙДЕР
 const slidesData = [
   { img: 'img/cat1.png', title: 'Барсик', text: 'Ищет друга для игр' },
   { img: 'img/puppy.png', title: 'Шарик', text: 'Очень любит обнимашки' },
@@ -162,6 +163,7 @@ if (sliderTrack) {
   startTimer();
 }
 
+//КОРЗИНА ДРУЗЕЙ
 const friendsData = [
   { id: 1, name: 'Алиса', pet: 'Кошка', match: 95, img: 'img/cat1.png' },
   { id: 2, name: 'Максим', pet: 'Собака', match: 88, img: 'img/puppy.png' },
@@ -255,6 +257,7 @@ if (friendsCatalog) {
   renderFriendsCart();
 }
 
+//ПАГИТАЦИЯ
 const blogData = Array.from({ length: 50 }, (_, i) => ({
   id: i + 1,
   title: 'Совет по уходу за питомцем № ' + (i + 1),
